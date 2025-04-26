@@ -1,8 +1,8 @@
 pages:
   stage: deploy
   script:
-    - apt-get update && apt-get install -y bash
-    - bash -c 'shopt -s extglob && mkdir public && cp -r !(public) public/'
+    - mkdir public
+    - find . -mindepth 1 -maxdepth 1 ! -name public -exec cp -r {} public/ \;
   artifacts:
     paths:
       - public
