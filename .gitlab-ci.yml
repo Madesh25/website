@@ -1,7 +1,7 @@
 pages:
   stage: deploy
   script:
-    - apk add --no-cache bash  # install bash (only needed if not already installed)
+    - apt-get update && apt-get install -y bash
     - bash -c 'shopt -s extglob && mkdir public && cp -r !(public) public/'
   artifacts:
     paths:
